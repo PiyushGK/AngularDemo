@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Demo Page</title>
+	<link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+<h1>First Page</h1>
+<div ng-controller="homeCtrl">
+	<p><label>Name : </label> {{name}}</p>
+	<p><label>EmpId : </label> {{empID}}</p>
+	<p><label>Company : </label> {{companyName}}</p>
+	<input type="text" name="school" ng-model='info'>
+	<button ng-click="saveData(info)">CLICK</button>
+	<p>{{info}}</p>
+</div>
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript" src="controller/app.js"></script>
+<script type="text/javascript" src="controller/controller.js"></script>
+<script type="text/javascript" src="controller/service.js"></script>
+</body>
+</html>
