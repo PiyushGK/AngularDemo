@@ -7,14 +7,51 @@
 <body>
 <h1>First Page</h1>
 <div ng-controller="homeCtrl">
-	<p><label>Name : </label> {{name}}</p>
+	<!-- <p><label>Name : </label> {{name}}</p>
 	<p><label>EmpId : </label> {{empID}}</p>
 	<p><label>Company : </label> {{companyName}}</p>
 	<input type="text" name="school" ng-model='info'>
 	<button ng-click="saveData(info)">CLICK</button>
 	<p>{{info}}</p>
+	<h1 ng-repeat = "x in dk">
+		<span>{{x.name}}</span>
+		<span>{{x.companyName}}</span>
+		<s pan>{{x.address}}</span>
+	</h1>-->
+	<label>Name</label>
+	<input type="text" name="name" ng-model="newContact.name"/><br><br>
+	<label>Email</label>
+	<input type="text" name="email" ng-model="newContact.email"/><br><br>
+	<label>Phone No</label>
+	<input type="text" name="phoneNo" ng-model="newContact.phoneNo"/><br><br>
+	<br>
+	<input type="hidden" ng-model="newContact.id">
+	<input type="button" value="SAVE" ng-click="saveContact()"/>
+	<table>
+		<thead>
+			<th>Name</th>
+			<th>Email</th>
+			<th>PhoneNo</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts">
+				<td>{{ contact.name }}</td>
+				<td>{{ contact.email }}</td>
+				<td>{{ contact.phoneNo }}</td>
+				<td>
+					<a href="#" ng-click="editContact(contact.id)">Edit</a>|
+					<a href="#" ng-click="deleteContact(contact.id)">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>
-<script type="text/javascript" src="lib/angular.js"></script>
+<!-- <script type="text/javascript" src="lib/angular.js"></script>-->
+
+<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="controller/app.js"></script>
 <script type="text/javascript" src="controller/controller.js"></script>
 <script type="text/javascript" src="controller/service.js"></script>
