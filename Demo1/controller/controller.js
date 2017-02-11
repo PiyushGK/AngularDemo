@@ -1,17 +1,10 @@
-module.controller('homeCtrl' , ['$scope', 'homeService','$http', function ($scope, homeService, $http) {
-	/*$scope.name = 'Piyush Kawade'
-	$scope.empID = '1241841';
-	$scope.companyName = 'TCS';
+module.controller('homeCtrl' , ['$scope', 'homeService', function ($scope, homeService) {
 
 
-	$scope.saveData = function (inputData){
-		homeService.getData(inputData);
-	}
-	 
-	$http.get("./json/info.json").then(function (response){
-		$scope.dk = response.data;
+	homeService.newData().then(function(response){
+		$scope.test = response;
 	})
-*/
+
 	var uid = 1;
 
 	$scope.contacts=[{
@@ -32,8 +25,9 @@ module.controller('homeCtrl' , ['$scope', 'homeService','$http', function ($scop
 				$scope.contacts[i] == $scope.newContact ;
 			}
 		}
+		$scope.newContact = {};
 	}
-	$scope.newContact = {};
+	
 
 	$scope.deleteContact = function(id) {
 		for(i in $scope.contacts){
@@ -49,7 +43,7 @@ module.controller('homeCtrl' , ['$scope', 'homeService','$http', function ($scop
 			if($scope.contacts[i].id == id) {
             	//we use angular.copy() method to create 
             	//copy of original object
-                $scope.newcontact = angular.copy($scope.contacts[i]);
+                $scope.newContact = angular.copy($scope.contacts[i]);
             }
 		}
 	}
